@@ -1,3 +1,3 @@
 # Audio Stream Starter - Skill Template
 
-A starter template for an Alexa audio streaming skill.
+This is a starter template for creating an Alexa audio streaming skill.

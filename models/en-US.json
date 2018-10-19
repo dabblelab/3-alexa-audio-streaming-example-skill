@@ -2,12 +2,23 @@
   "interactionModel": {
     "languageModel": {
       "invocationName": "audio stream starter",
-      "intents": [{
-          "name": "PlayStream",
+      "types": [],
+      "intents": [
+        {
+          "name": "PlayStreamIntent",
+          "slots": [],
           "samples": [
-            "play",
-            "start",
-            "play stream"
+            "to play",
+            "to start playing",
+            "to start"
+          ]
+        },
+        {
+          "name": "AboutIntent",
+          "samples": [
+            "about",
+            "what is this",
+            "tell me about this"
           ]
         },
         {
@@ -17,21 +28,18 @@
           "name": "AMAZON.ResumeIntent"
         },
         {
-          "name": "AMAZON.HelpIntent",
-          "samples": [
-            "help me",
-            "how does this work",
-            "what should i do"
-          ]
-        },
-        {
           "name": "AMAZON.StopIntent"
         },
         {
           "name": "AMAZON.CancelIntent"
         },
         {
-          "name": "AMAZON.StartOverIntent"
+          "name": "AMAZON.HelpIntent",
+          "samples": [
+            "help me",
+            "how does this work",
+            "what should i do"
+          ]
         }
       ]
     }
