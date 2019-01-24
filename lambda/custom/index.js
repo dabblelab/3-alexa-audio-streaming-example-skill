@@ -37,10 +37,17 @@ const STREAMS = [
 const PlayStreamIntentHandler = {
   canHandle(handlerInput) {
     return handlerInput.requestEnvelope.request.type === 'LaunchRequest' ||
-        (handlerInput.requestEnvelope.request.type === 'IntentRequest'
-        && handlerInput.requestEnvelope.request.intent.name === 'PlayStreamIntent') ||
-        (handlerInput.requestEnvelope.request.type === 'IntentRequest'
-        && handlerInput.requestEnvelope.request.intent.name === 'AMAZON.ResumeIntent');
+      handlerInput.requestEnvelope.request.type === 'IntentRequest' &&
+        (
+          handlerInput.requestEnvelope.request.intent.name === 'PlayStreamIntent' ||
+          handlerInput.requestEnvelope.request.intent.name === 'AMAZON.ResumeIntent' ||
+          handlerInput.requestEnvelope.request.intent.name === 'AMAZON.LoopOnIntent' ||
+          handlerInput.requestEnvelope.request.intent.name === 'AMAZON.NextIntent' ||
+          handlerInput.requestEnvelope.request.intent.name === 'AMAZON.PreviousIntent' ||
+          handlerInput.requestEnvelope.request.intent.name === 'AMAZON.RepeatIntent' ||
+          handlerInput.requestEnvelope.request.intent.name === 'AMAZON.ShuffleOnIntent' ||
+          handlerInput.requestEnvelope.request.intent.name === 'AMAZON.StartOverIntent'
+      );
   },
   handle(handlerInput) {
 
@@ -61,11 +68,10 @@ const HelpIntentHandler = {
       && handlerInput.requestEnvelope.request.intent.name === 'AMAZON.HelpIntent';
   },
   handle(handlerInput) {
-    const speechText = 'This skill just plays an audio stream when it is started. It does not have any additional functionality.';
+    const speechText = 'This skill plays an audio stream when it is started. It does not have any additional functionality.';
 
     return handlerInput.responseBuilder
       .speak(speechText)
-      .reprompt(speechText)
       .getResponse();
   },
 };
@@ -76,7 +82,7 @@ const AboutIntentHandler = {
       && handlerInput.requestEnvelope.request.intent.name === 'AboutIntent';
   },
   handle(handlerInput) {
-    const speechText = 'This is an audio starter template from skill templates dot com';
+    const speechText = 'This is an audio streaming skill that was built with a free template from skill templates dot com';
 
     return handlerInput.responseBuilder
       .speak(speechText)
@@ -88,8 +94,13 @@ const AboutIntentHandler = {
 const CancelAndStopIntentHandler = {
   canHandle(handlerInput) {
     return handlerInput.requestEnvelope.request.type === 'IntentRequest'
-      && (handlerInput.requestEnvelope.request.intent.name === 'AMAZON.StopIntent'
-        || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.PauseIntent');
+        && (
+          handlerInput.requestEnvelope.request.intent.name === 'AMAZON.StopIntent' ||
+          handlerInput.requestEnvelope.request.intent.name === 'AMAZON.PauseIntent' ||
+          handlerInput.requestEnvelope.request.intent.name === 'AMAZON.CancelIntent' ||
+          handlerInput.requestEnvelope.request.intent.name === 'AMAZON.LoopOffIntent' ||
+          handlerInput.requestEnvelope.request.intent.name === 'AMAZON.ShuffleOffIntent'
+        );
   },
   handle(handlerInput) {
 
@@ -104,11 +115,16 @@ const CancelAndStopIntentHandler = {
 
 const PlaybackStoppedIntentHandler = {
   canHandle(handlerInput) {
-    return handlerInput.requestEnvelope.request.type === 'AudioPlayer.PlaybackStopped';
+    return handlerInput.requestEnvelope.request.type === 'PlaybackController.PauseCommandIssued' || 
+            handlerInput.requestEnvelope.request.type === 'AudioPlayer.PlaybackStopped';
   },
   handle(handlerInput) {
-    //should save details so play can be resumed. 
-    return true;
+    handlerInput.responseBuilder
+      .addAudioPlayerClearQueueDirective('CLEAR_ALL')
+      .addAudioPlayerStopDirective();
+
+    return handlerInput.responseBuilder
+      .getResponse();
   },
 };
 

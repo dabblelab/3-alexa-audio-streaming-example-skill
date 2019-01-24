@@ -10,7 +10,7 @@
           "samples": [
             "to play",
             "to start playing",
-            "to start"
+            "to begin playing"
           ]
         },
         {
@@ -32,6 +32,30 @@
         },
         {
           "name": "AMAZON.CancelIntent"
+        },
+        {
+          "name": "AMAZON.LoopOnIntent"
+        },
+        {
+          "name": "AMAZON.NextIntent"
+        },
+        {
+          "name": "AMAZON.PreviousIntent"
+        },
+        {
+          "name": "AMAZON.RepeatIntent"
+        },
+        {
+          "name": "AMAZON.ShuffleOnIntent"
+        },
+        {
+          "name": "AMAZON.StartOverIntent"
+        },
+        {
+          "name": "AMAZON.LoopOffIntent"
+        },
+        {
+          "name": "AMAZON.ShuffleOffIntent"
         },
         {
           "name": "AMAZON.HelpIntent",
