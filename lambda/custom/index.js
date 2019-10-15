@@ -5,8 +5,8 @@ const Alexa = require('ask-sdk-core');
 
 const STREAMS = [
   {
-    "token": "stream-12",
-    "url": 'https://streaming.radionomy.com/RadioXUS?lang=en-US&appName=iTunes.m3u',
+    "token": uuidv4(),
+    "url": 'https://streaming.radionomy.com/-ibizaglobalradio-?lang=en-US&appName=iTunes.m3u',
     "metadata" : {
       "title": "Stream One",
       "subtitle": "A subtitle for stream one",
@@ -33,6 +33,8 @@ const STREAMS = [
     }
   }
 ];
+
+console.log(STREAMS);
 
 const PlayStreamIntentHandler = {
   canHandle(handlerInput) {
@@ -195,3 +197,11 @@ exports.handler = skillBuilder
   )
   .addErrorHandlers(ErrorHandler)
   .lambda();
+  
+  //helper functions
+  function uuidv4() {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+      var r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
+      return v.toString(16);
+    });
+  }

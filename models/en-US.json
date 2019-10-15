@@ -1,71 +1,84 @@
 {
   "interactionModel": {
-    "languageModel": {
-      "invocationName": "audio stream starter",
-      "types": [],
-      "intents": [
-        {
-          "name": "PlayStreamIntent",
-          "slots": [],
-          "samples": [
-            "to play",
-            "to start playing",
-            "to begin playing"
-          ]
-        },
-        {
-          "name": "AboutIntent",
-          "samples": [
-            "about",
-            "what is this",
-            "tell me about this"
-          ]
-        },
-        {
-          "name": "AMAZON.PauseIntent"
-        },
-        {
-          "name": "AMAZON.ResumeIntent"
-        },
-        {
-          "name": "AMAZON.StopIntent"
-        },
-        {
-          "name": "AMAZON.CancelIntent"
-        },
-        {
-          "name": "AMAZON.LoopOnIntent"
-        },
-        {
-          "name": "AMAZON.NextIntent"
-        },
-        {
-          "name": "AMAZON.PreviousIntent"
-        },
-        {
-          "name": "AMAZON.RepeatIntent"
-        },
-        {
-          "name": "AMAZON.ShuffleOnIntent"
-        },
-        {
-          "name": "AMAZON.StartOverIntent"
-        },
-        {
-          "name": "AMAZON.LoopOffIntent"
-        },
-        {
-          "name": "AMAZON.ShuffleOffIntent"
-        },
-        {
-          "name": "AMAZON.HelpIntent",
-          "samples": [
-            "help me",
-            "how does this work",
-            "what should i do"
-          ]
-        }
-      ]
-    }
+      "languageModel": {
+          "invocationName": "audio stream starter",
+          "intents": [
+              {
+                  "name": "PlayStreamIntent",
+                  "slots": [],
+                  "samples": [
+                      "to play",
+                      "to start playing",
+                      "to begin playing"
+                  ]
+              },
+              {
+                  "name": "AboutIntent",
+                  "slots": [],
+                  "samples": [
+                      "about",
+                      "what is this",
+                      "tell me about this"
+                  ]
+              },
+              {
+                  "name": "AMAZON.PauseIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.ResumeIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.StopIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.CancelIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.LoopOnIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.NextIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.PreviousIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.RepeatIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.ShuffleOnIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.StartOverIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.LoopOffIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.ShuffleOffIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.HelpIntent",
+                  "samples": [
+                      "help me",
+                      "how does this work",
+                      "what should i do"
+                  ]
+              }
+          ],
+          "types": []
+      }
   }
 }
