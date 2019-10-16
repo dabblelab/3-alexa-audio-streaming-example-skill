@@ -1,11 +1,32 @@
-/* eslint-disable  func-names */
-/* eslint-disable  no-console */
+/* 
+MIT License
+
+Copyright (c) 2019 Dabble Lab
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*/
 
 const Alexa = require('ask-sdk-core');
 
 const STREAMS = [
   {
-    "token": uuidv4(),
+    "token": "1",
     "url": 'https://streaming.radionomy.com/-ibizaglobalradio-?lang=en-US&appName=iTunes.m3u',
     "metadata" : {
       "title": "Stream One",
@@ -33,8 +54,6 @@ const STREAMS = [
     }
   }
 ];
-
-console.log(STREAMS);
 
 const PlayStreamIntentHandler = {
   canHandle(handlerInput) {
@@ -130,7 +149,7 @@ const PlaybackStoppedIntentHandler = {
   },
 };
 
-//AudioPlayer.PlaybackStarted
+
 const PlaybackStartedIntentHandler = {
   canHandle(handlerInput) {
     return handlerInput.requestEnvelope.request.type === 'AudioPlayer.PlaybackStarted';
@@ -156,7 +175,7 @@ const SessionEndedRequestHandler = {
   },
 };
 
-//System.ExceptionEncountered
+
 const ExceptionEncounteredRequestHandler = {
   canHandle(handlerInput) {
     return handlerInput.requestEnvelope.request.type === 'System.ExceptionEncountered';
@@ -174,10 +193,8 @@ const ErrorHandler = {
   },
   handle(handlerInput, error) {
     console.log(`Error handled: ${error.message}`);
-
+    console.log(handlerInput.requestEnvelope.request.type);
     return handlerInput.responseBuilder
-      .addAudioPlayerClearQueueDirective('CLEAR_ALL')
-      .addAudioPlayerStopDirective()
       .getResponse();
   },
 };
@@ -195,13 +212,6 @@ exports.handler = skillBuilder
     ExceptionEncounteredRequestHandler,
     SessionEndedRequestHandler
   )
-  .addErrorHandlers(ErrorHandler)
+ .addErrorHandlers(ErrorHandler)
   .lambda();
-  
-  //helper functions
-  function uuidv4() {
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-      var r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
-      return v.toString(16);
-    });
-  }
+ 
