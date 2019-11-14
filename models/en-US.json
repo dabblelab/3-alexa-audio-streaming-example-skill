@@ -3,6 +3,12 @@
       "languageModel": {
           "invocationName": "audio stream starter",
           "intents": [
+            {
+                "name": "AMAZON.NavigateHomeIntent",
+                "samples": [
+      
+                ]
+              },
               {
                   "name": "PlayStreamIntent",
                   "slots": [],
