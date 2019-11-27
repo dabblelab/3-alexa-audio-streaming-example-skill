@@ -1,7 +1,7 @@
 {
   "interactionModel": {
       "languageModel": {
-          "invocationName": "audio stream starter",
+          "invocationName": "template three",
           "intents": [
             {
                 "name": "AMAZON.NavigateHomeIntent",

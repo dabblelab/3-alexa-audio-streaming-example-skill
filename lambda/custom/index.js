@@ -103,7 +103,7 @@ const AboutIntentHandler = {
       && handlerInput.requestEnvelope.request.intent.name === 'AboutIntent';
   },
   handle(handlerInput) {
-    const speechText = 'This is an audio streaming skill that was built with a free template from skill templates dot com';
+    const speechText = 'This is an audio streaming skill that was built with a free template from dabblelab.com. To continue listening say: resume, or say: stop to stop listening.';
 
     return handlerInput.responseBuilder
       .speak(speechText)
@@ -149,7 +149,6 @@ const PlaybackStoppedIntentHandler = {
   },
 };
 
-
 const PlaybackStartedIntentHandler = {
   canHandle(handlerInput) {
     return handlerInput.requestEnvelope.request.type === 'AudioPlayer.PlaybackStarted';
@@ -174,7 +173,6 @@ const SessionEndedRequestHandler = {
       .getResponse();
   },
 };
-
 
 const ExceptionEncounteredRequestHandler = {
   canHandle(handlerInput) {
