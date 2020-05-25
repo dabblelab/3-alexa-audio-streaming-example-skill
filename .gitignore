@@ -1,4 +1,4 @@
-_tmp/
+_dev/
 config.js
 .DS_Store
 node_modules/
