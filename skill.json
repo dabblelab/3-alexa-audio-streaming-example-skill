@@ -14,7 +14,7 @@
             "music",
             "live music"
           ],
-          "name": "Audio Streaming Example Skill",
+          "name": "Template 3 - Audio Streaming Example",
           "description": "A starter template for an Alexa audio streaming skill.",
           "smallIconUri": "https://s3.amazonaws.com/cdn.dabblelab.com/img/skill-template-default-sm.png",
           "largeIconUri": "https://s3.amazonaws.com/cdn.dabblelab.com/img/skill-template-default-lg.png"
