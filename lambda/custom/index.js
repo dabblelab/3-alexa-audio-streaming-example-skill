@@ -1,9 +1,10 @@
-/* 
+/* eslint-disable no-mixed-operators */
+/*
   Copyright (c) 2019 Dabble Lab
 
   Template 3 - Alexa Audio Streaming Example Skill
 
-  For a tutorial on using this template please visit: 
+  For a tutorial on using this template please visit:
   https://dabblelab.com/templates/3-alexa-audio-streaming-example-skill
 
 */
@@ -12,53 +13,52 @@ const Alexa = require('ask-sdk-core');
 
 const STREAMS = [
   {
-    "token": "1",
-    "url": 'https://streaming.radionomy.com/-ibizaglobalradio-?lang=en-US&appName=iTunes.m3u',
-    "metadata" : {
-      "title": "Stream One",
-      "subtitle": "A subtitle for stream one",
-      "art": {
-        "sources": [
+    token: '1',
+    url: 'https://streaming.radionomy.com/-ibizaglobalradio-?lang=en-US&appName=iTunes.m3u',
+    metadata: {
+      title: 'Stream One',
+      subtitle: 'A subtitle for stream one',
+      art: {
+        sources: [
           {
-            "contentDescription": "example image",
-            "url": "https://s3.amazonaws.com/cdn.dabblelab.com/img/audiostream-starter-512x512.png",
-            "widthPixels": 512,
-            "heightPixels": 512
-          }
-        ]
+            contentDescription: 'example image',
+            url: 'https://s3.amazonaws.com/cdn.dabblelab.com/img/audiostream-starter-512x512.png',
+            widthPixels: 512,
+            heightPixels: 512,
+          },
+        ],
       },
-      "backgroundImage": {
-        "sources": [
+      backgroundImage: {
+        sources: [
           {
-            "contentDescription": "example image",
-            "url": "https://s3.amazonaws.com/cdn.dabblelab.com/img/wayfarer-on-beach-1200x800.png",
-            "widthPixels": 1200,
-            "heightPixels": 800
-          }
-        ]
-      }
-    }
-  }
+            contentDescription: 'example image',
+            url: 'https://s3.amazonaws.com/cdn.dabblelab.com/img/wayfarer-on-beach-1200x800.png',
+            widthPixels: 1200,
+            heightPixels: 800,
+          },
+        ],
+      },
+    },
+  },
 ];
 
 const PlayStreamIntentHandler = {
   canHandle(handlerInput) {
-    return handlerInput.requestEnvelope.request.type === 'LaunchRequest' ||
-      handlerInput.requestEnvelope.request.type === 'IntentRequest' &&
-        (
-          handlerInput.requestEnvelope.request.intent.name === 'PlayStreamIntent' ||
-          handlerInput.requestEnvelope.request.intent.name === 'AMAZON.ResumeIntent' ||
-          handlerInput.requestEnvelope.request.intent.name === 'AMAZON.LoopOnIntent' ||
-          handlerInput.requestEnvelope.request.intent.name === 'AMAZON.NextIntent' ||
-          handlerInput.requestEnvelope.request.intent.name === 'AMAZON.PreviousIntent' ||
-          handlerInput.requestEnvelope.request.intent.name === 'AMAZON.RepeatIntent' ||
-          handlerInput.requestEnvelope.request.intent.name === 'AMAZON.ShuffleOnIntent' ||
-          handlerInput.requestEnvelope.request.intent.name === 'AMAZON.StartOverIntent'
-      );
+    return handlerInput.requestEnvelope.request.type === 'LaunchRequest'
+      || handlerInput.requestEnvelope.request.type === 'IntentRequest'
+        && (
+          handlerInput.requestEnvelope.request.intent.name === 'PlayStreamIntent'
+          || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.ResumeIntent'
+          || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.LoopOnIntent'
+          || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.NextIntent'
+          || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.PreviousIntent'
+          || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.RepeatIntent'
+          || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.ShuffleOnIntent'
+          || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.StartOverIntent'
+        );
   },
   handle(handlerInput) {
-
-    let stream = STREAMS[0];
+    const stream = STREAMS[0];
 
     handlerInput.responseBuilder
       .speak(`starting ${stream.metadata.title}`)
@@ -102,15 +102,14 @@ const CancelAndStopIntentHandler = {
   canHandle(handlerInput) {
     return handlerInput.requestEnvelope.request.type === 'IntentRequest'
         && (
-          handlerInput.requestEnvelope.request.intent.name === 'AMAZON.StopIntent' ||
-          handlerInput.requestEnvelope.request.intent.name === 'AMAZON.PauseIntent' ||
-          handlerInput.requestEnvelope.request.intent.name === 'AMAZON.CancelIntent' ||
-          handlerInput.requestEnvelope.request.intent.name === 'AMAZON.LoopOffIntent' ||
-          handlerInput.requestEnvelope.request.intent.name === 'AMAZON.ShuffleOffIntent'
+          handlerInput.requestEnvelope.request.intent.name === 'AMAZON.StopIntent'
+          || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.PauseIntent'
+          || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.CancelIntent'
+          || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.LoopOffIntent'
+          || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.ShuffleOffIntent'
         );
   },
   handle(handlerInput) {
-
     handlerInput.responseBuilder
       .addAudioPlayerClearQueueDirective('CLEAR_ALL')
       .addAudioPlayerStopDirective();
@@ -122,8 +121,8 @@ const CancelAndStopIntentHandler = {
 
 const PlaybackStoppedIntentHandler = {
   canHandle(handlerInput) {
-    return handlerInput.requestEnvelope.request.type === 'PlaybackController.PauseCommandIssued' || 
-            handlerInput.requestEnvelope.request.type === 'AudioPlayer.PlaybackStopped';
+    return handlerInput.requestEnvelope.request.type === 'PlaybackController.PauseCommandIssued'
+            || handlerInput.requestEnvelope.request.type === 'AudioPlayer.PlaybackStopped';
   },
   handle(handlerInput) {
     handlerInput.responseBuilder
@@ -194,8 +193,7 @@ exports.handler = skillBuilder
     AboutIntentHandler,
     HelpIntentHandler,
     ExceptionEncounteredRequestHandler,
-    SessionEndedRequestHandler
+    SessionEndedRequestHandler,
   )
- .addErrorHandlers(ErrorHandler)
+  .addErrorHandlers(ErrorHandler)
   .lambda();
- 

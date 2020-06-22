@@ -10,11 +10,17 @@
   ],
   "author": "skilltemplates.com",
   "license": "See license in ../LICENSE.txt",
-  "dependencies": {
-    "ask-sdk": "^2.1.0"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/skilltemplates/audio-stream-starter-alexa.git"
+  },
+  "dependencies": {
+    "ask-sdk-core": "^2.0.0",
+    "ask-sdk-model": "^1.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.3.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.21.2"
   }
 }
