@@ -2,3 +2,7 @@ _dev/
 config.js
 .DS_Store
 node_modules/
+.ask/
+ask-resources.json
+package-lock.json
+.env
