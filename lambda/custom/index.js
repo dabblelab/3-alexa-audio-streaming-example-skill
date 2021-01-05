@@ -1,30 +1,19 @@
-/* eslint-disable no-mixed-operators */
-/*
-  Copyright (c) 2019 Dabble Lab
-
-  Template 3 - Alexa Audio Streaming Example Skill
-
-  For a tutorial on using this template please visit:
-  https://dabblelab.com/templates/3-alexa-audio-streaming-example-skill
-
-*/
-
 const Alexa = require('ask-sdk-core');
 
 const STREAMS = [
   {
     token: '1',
-    url: 'https://streaming.radionomy.com/-ibizaglobalradio-?lang=en-US&appName=iTunes.m3u',
-    metadata: {
-      title: 'Stream One',
-      subtitle: 'A subtitle for stream one',
+    url: 'https://naxi64ssl.streaming.rs:9162/;stream.nsv',
+     metadata: {
+      title: 'Naksi Radio Belgrade',
+      subtitle: 'Naksi Radio Belgrade, the most popular radio station in the Balkans',
       art: {
         sources: [
           {
-            contentDescription: 'example image',
-            url: 'https://s3.amazonaws.com/cdn.dabblelab.com/img/audiostream-starter-512x512.png',
-            widthPixels: 512,
-            heightPixels: 512,
+            contentDescription: 'naxi radio belgrade logo',
+            url: 'https://www.naxi.rs/images/naxi_logo.png',
+            widthPixels: 190,
+            heightPixels: 175,
           },
         ],
       },
@@ -32,9 +21,9 @@ const STREAMS = [
         sources: [
           {
             contentDescription: 'example image',
-            url: 'https://s3.amazonaws.com/cdn.dabblelab.com/img/wayfarer-on-beach-1200x800.png',
-            widthPixels: 1200,
-            heightPixels: 800,
+            url: 'https://www.naxi.rs/images/header_bg.jpg',
+            widthPixels: 970,
+            heightPixels: 195,
           },
         ],
       },
@@ -75,7 +64,7 @@ const HelpIntentHandler = {
       && handlerInput.requestEnvelope.request.intent.name === 'AMAZON.HelpIntent';
   },
   handle(handlerInput) {
-    const speechText = 'This skill plays an audio stream when it is started. It does not have any additional functionality.';
+    const speechText = 'This skill plays Naxi Radio Belgrade\'s audio stream when it is started. It does not have any additional functionality.';
 
     return handlerInput.responseBuilder
       .speak(speechText)
@@ -89,7 +78,7 @@ const AboutIntentHandler = {
       && handlerInput.requestEnvelope.request.intent.name === 'AboutIntent';
   },
   handle(handlerInput) {
-    const speechText = 'This is an audio streaming skill that was built with a free template from dabblelab.com. To continue listening say: resume, or say: stop to stop listening.';
+    const speechText = 'This skill plays Naxi Radio Belgrade\'s audio stream when it is started. To continue listening say: resume, or say: stop to stop listening';
 
     return handlerInput.responseBuilder
       .speak(speechText)

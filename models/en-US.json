@@ -1,7 +1,7 @@
 {
   "interactionModel": {
       "languageModel": {
-          "invocationName": "template three",
+          "invocationName": "naksi radio belgrade",
           "intents": [
             {
                 "name": "AMAZON.NavigateHomeIntent",
