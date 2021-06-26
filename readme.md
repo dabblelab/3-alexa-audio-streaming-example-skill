@@ -1,7 +1,7 @@
 Alexa AudioPlayer Skill Template
 ---
 
-<a href="https://dabblelab.com/tutorials/creating-an-alexa-audio-streaming-skill"><img src="http://img.youtube.com/vi/-2Q0s9o_Hd0/maxresdefault.jpg" alt="Build an Alexa Audio Streaming Skill - Dabble Lab #96" height="480" /></a>
+<a href="https://dabblelab.com/tutorials/creating-an-alexa-audio-streaming-skill"><img src="http://img.youtube.com/vi/NoCPUypkimc/maxresdefault.jpg" alt="Build an Alexa Audio Streaming Skill - Dabble Lab #96" height="480" /></a>
 
 ## Description
 
