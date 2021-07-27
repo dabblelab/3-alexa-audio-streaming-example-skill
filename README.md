@@ -1,18 +1,25 @@
-Alexa AudioPlayer Skill Template
----
+![Cover Image](./assets/cover.png)
 
-<a href="https://dabblelab.com/tutorials/creating-an-alexa-audio-streaming-skill"><img src="http://img.youtube.com/vi/NoCPUypkimc/maxresdefault.jpg" alt="Build an Alexa Audio Streaming Skill - Dabble Lab #96" height="480" /></a>
+# Alexa Audio Streaming Skill Template
 
-## Description
+This is an Alexa skill template that provides example code for playing an audio stream. 
 
-Visit [https://dabblelab.com/tutorials/creating-an-alexa-audio-streaming-skill](https://dabblelab.com/tutorials/creating-an-alexa-audio-streaming-skill) for a tutorial that walks through building an audio streaming skill for Amazon Alexa using the code from this repository.
+### Live example
+There is a live example of this skill that you can try from your Alexa device. Just enable the [Dabble Radio Alexa skill](https://www.amazon.com/Dabble-Lab-Radio/dp/B07JYWFGZ1). You can do that by saying: `Alexa, enable Dabble Radio` and then `Alexa, open Dabble Radio`.
 
-≡≡ 100+ MORE TUTORIALS  ≡≡
+The live skill and this template play a stream that was setup on [zeno.fm](http://stream.zeno.fm/efe91skxn18uv). However, the template will work with any stream that meets the Alexa audio format guidelines. See the [Alexa documentation](https://developer.amazon.com/en-US/docs/alexa/alexa-voice-service/audioplayer.html) for more information.
 
-Subscribe - http://youtube.com/dabblelab
+### Using this skill template
 
-≡≡ CONNECT WITH US  ≡≡
+1. If you don't have one already, create an [Amazon Developer account](https://developer.amazon.com/).
 
-website - http://dabblelab.com
-twitter - http://twitter.com/dabblelab
-facebook - http://facebook.com/dabblelab
+2. Click the button below to deploy the code for this skill into your Alexa developer account. 
+
+    [![Custom badge](https://img.shields.io/endpoint?url=https://badges-shields-io-88j4y07yzimq.runkit.sh)](https://deploy.dabble.dev/deploy/v2/qepzx2lhu3)
+
+3. In the Alexa developer console, set the skill's invocation name.
+
+4. Test the skill with and Alexa device that can play audio. 
+    > **NOTE:** You can't test audio skill with the Alexa simulator.
+
+5. Modify the skill code to use your own stream URL.
