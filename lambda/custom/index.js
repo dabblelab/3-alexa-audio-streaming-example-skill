@@ -1,40 +1,29 @@
-/* eslint-disable no-mixed-operators */
-/*
-  Copyright (c) 2019 Dabble Lab
-
-  Template 3 - Alexa Audio Streaming Example Skill
-
-  For a tutorial on using this template please visit:
-  https://dabblelab.com/templates/3-alexa-audio-streaming-example-skill
-
-*/
-
 const Alexa = require('ask-sdk-core');
 
 const STREAMS = [
   {
-    token: '1',
-    url: 'https://streaming.radionomy.com/-ibizaglobalradio-?lang=en-US&appName=iTunes.m3u',
-    metadata: {
-      title: 'Stream One',
-      subtitle: 'A subtitle for stream one',
-      art: {
-        sources: [
+    'token': 'dabble-radio-1',
+    'url': 'https://stream.zeno.fm/efe91skxn18uv.m3u',
+    'metadata': {
+      'title': 'Dabble Radio',
+      'subtitle': 'Music for coders',
+      'art': {
+        'sources': [
           {
-            contentDescription: 'example image',
-            url: 'https://s3.amazonaws.com/cdn.dabblelab.com/img/audiostream-starter-512x512.png',
-            widthPixels: 512,
-            heightPixels: 512,
+            'contentDescription': 'Dabble Radio',
+            'url': 'https://s3.amazonaws.com/cdn.dabblelab.com/img/audiostream-starter-512x512.png',
+            'widthPixels': 512,
+            'heightPixels': 512,
           },
         ],
       },
-      backgroundImage: {
-        sources: [
+      'backgroundImage': {
+        'sources': [
           {
-            contentDescription: 'example image',
-            url: 'https://s3.amazonaws.com/cdn.dabblelab.com/img/wayfarer-on-beach-1200x800.png',
-            widthPixels: 1200,
-            heightPixels: 800,
+            'contentDescription': 'Dabble Radio',
+            'url': 'https://s3.amazonaws.com/cdn.dabblelab.com/img/wayfarer-on-beach-1200x800.png',
+            'widthPixels': 1200,
+            'heightPixels': 800,
           },
         ],
       },
@@ -44,8 +33,8 @@ const STREAMS = [
 
 const PlayStreamIntentHandler = {
   canHandle(handlerInput) {
-    return handlerInput.requestEnvelope.request.type === 'LaunchRequest'
-      || handlerInput.requestEnvelope.request.type === 'IntentRequest'
+    return (handlerInput.requestEnvelope.request.type === 'LaunchRequest'
+      || handlerInput.requestEnvelope.request.type === 'IntentRequest')
         && (
           handlerInput.requestEnvelope.request.intent.name === 'PlayStreamIntent'
           || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.ResumeIntent'
@@ -89,7 +78,7 @@ const AboutIntentHandler = {
       && handlerInput.requestEnvelope.request.intent.name === 'AboutIntent';
   },
   handle(handlerInput) {
-    const speechText = 'This is an audio streaming skill that was built with a free template from dabblelab.com. To continue listening say: resume, or say: stop to stop listening.';
+    const speechText = 'This is an audio streaming skill that was built with a free template from skill templates dot com';
 
     return handlerInput.responseBuilder
       .speak(speechText)
