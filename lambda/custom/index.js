@@ -1,3 +1,7 @@
+/* eslint-disable no-mixed-operators */
+/* eslint-disable  func-names */
+/* eslint-disable  no-console */
+
 const Alexa = require('ask-sdk-core');
 
 const STREAMS = [
@@ -33,18 +37,18 @@ const STREAMS = [
 
 const PlayStreamIntentHandler = {
   canHandle(handlerInput) {
-    return (handlerInput.requestEnvelope.request.type === 'LaunchRequest'
-      || handlerInput.requestEnvelope.request.type === 'IntentRequest')
-        && (
-          handlerInput.requestEnvelope.request.intent.name === 'PlayStreamIntent'
-          || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.ResumeIntent'
-          || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.LoopOnIntent'
-          || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.NextIntent'
-          || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.PreviousIntent'
-          || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.RepeatIntent'
-          || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.ShuffleOnIntent'
-          || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.StartOverIntent'
-        );
+    return handlerInput.requestEnvelope.request.type === 'LaunchRequest'
+      || handlerInput.requestEnvelope.request.type === 'IntentRequest'
+      && (
+        handlerInput.requestEnvelope.request.intent.name === 'PlayStreamIntent'
+        || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.ResumeIntent'
+        || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.LoopOnIntent'
+        || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.NextIntent'
+        || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.PreviousIntent'
+        || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.RepeatIntent'
+        || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.ShuffleOnIntent'
+        || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.StartOverIntent'
+      );
   },
   handle(handlerInput) {
     const stream = STREAMS[0];
@@ -90,13 +94,13 @@ const AboutIntentHandler = {
 const CancelAndStopIntentHandler = {
   canHandle(handlerInput) {
     return handlerInput.requestEnvelope.request.type === 'IntentRequest'
-        && (
-          handlerInput.requestEnvelope.request.intent.name === 'AMAZON.StopIntent'
-          || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.PauseIntent'
-          || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.CancelIntent'
-          || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.LoopOffIntent'
-          || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.ShuffleOffIntent'
-        );
+      && (
+        handlerInput.requestEnvelope.request.intent.name === 'AMAZON.StopIntent'
+        || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.PauseIntent'
+        || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.CancelIntent'
+        || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.LoopOffIntent'
+        || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.ShuffleOffIntent'
+      );
   },
   handle(handlerInput) {
     handlerInput.responseBuilder
@@ -111,7 +115,7 @@ const CancelAndStopIntentHandler = {
 const PlaybackStoppedIntentHandler = {
   canHandle(handlerInput) {
     return handlerInput.requestEnvelope.request.type === 'PlaybackController.PauseCommandIssued'
-            || handlerInput.requestEnvelope.request.type === 'AudioPlayer.PlaybackStopped';
+      || handlerInput.requestEnvelope.request.type === 'AudioPlayer.PlaybackStopped';
   },
   handle(handlerInput) {
     handlerInput.responseBuilder
