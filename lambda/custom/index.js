@@ -72,6 +72,7 @@ const HelpIntentHandler = {
 
     return handlerInput.responseBuilder
       .speak(speechText)
+      .reprompt(speechText)
       .getResponse();
   },
 };
